@@ -4,15 +4,23 @@ import { ListFilter } from '../TypeList/TypeList'
 
 import Types from '../../store/data/types'
 import Pokemon from '../../store/data/pokemon';
+import Moves from '../../store/data/moves'
 
 let defaultState = {
-    category: 'Specials'
+    pokemon: [],
+    types: [],
+    moves: [],
+    generations: []
 }
+
+// const Types = <Element[]>require('../../store/data/types')
 
 export class App extends React.Component<null, typeof defaultState> {
     constructor(props: any) {
         super(props)
         this.state = defaultState
+
+        console.log(Moves)
     }
 
     render() {
@@ -27,11 +35,10 @@ export class App extends React.Component<null, typeof defaultState> {
                     </div>
                 </header>
 
-                <h3>Greetings</h3>
                 <div className="listings">
                     <div className="col">
                         <div className="list">
-                            <List data={Pokemon.list} types={Types.list} />
+                            <List pokemon={Pokemon.list} types={Types.list} moves={Moves.list} />
                         </div>
                         <div className="filters">
                             <ListFilter types={Types.list} />

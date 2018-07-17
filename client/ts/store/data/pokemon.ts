@@ -22,27 +22,11 @@ var Pokemon = {
         moves: [
             {
                 id: 1,
-                type_id: 5,
-                name: 'Tackle',
-                power: '50',
-                accuracy: 100,
-                pp: 35,
-                learned_at: {
-                    type: 'level',
-                    value: 1
-                }
+                move_id: 1
             },
             {
                 id: 2,
-                type_id: 1,
-                name: 'Vine Whip',
-                power: 45,
-                accuracy: 100,
-                pp: 25,
-                learned_at: {
-                    type: 'level',
-                    value: 10
-                }
+                move_id: 3
             }
         ],
         evolutions: [
@@ -118,27 +102,11 @@ var Pokemon = {
         moves: [
             {
                 id: 1,
-                type_id: 5,
-                name: 'Tackle',
-                power: '50',
-                accuracy: 100,
-                pp: 35,
-                learned_at: {
-                    type: 'level',
-                    value: 1
-                }
+                move_id: 1
             },
             {
                 id: 2,
-                type_id: 1,
-                name: 'Vine Whip',
-                power: 45,
-                accuracy: 100,
-                pp: 25,
-                learned_at: {
-                    type: 'level',
-                    value: 10
-                }
+                move_id: 3
             }
         ],
         evolutions: [
@@ -214,39 +182,15 @@ var Pokemon = {
         moves: [
             {
                 id: 1,
-                type_id: 5,
-                name: 'Tackle',
-                power: '50',
-                accuracy: 100,
-                pp: 35,
-                learned_at: {
-                    type: 'level',
-                    value: 1
-                }
+                move_id: 1
             },
             {
                 id: 2,
-                type_id: 1,
-                name: 'Vine Whip',
-                power: 45,
-                accuracy: 100,
-                pp: 25,
-                learned_at: {
-                    type: 'level',
-                    value: 10
-                }
+                move_id: 3
             },
             {
                 id: 3,
-                type_id: 1,
-                name: 'Razor Leaf',
-                power: 55,
-                accuracy: 95,
-                pp: 25,
-                learned_at: {
-                    type: 'level',
-                    value: 20
-                }
+                move_id: 4
             }
         ],
         evolutions: [

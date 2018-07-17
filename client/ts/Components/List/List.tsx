@@ -3,6 +3,7 @@ import * as _ from 'lodash'
 import './style.scss'
 import { ListType } from '../ListType/ListType'
 import { ListEvolutions } from '../ListEvolutions/ListEvolutions'
+import { ListMoves } from '../ListMoves/ListMoves'
 
 let defaultState = {
     generation: '',
@@ -11,18 +12,18 @@ let defaultState = {
     ]
 }
 
-export class List extends React.Component<{data: any, types: any}, typeof defaultState> {
+//pokemon: Pokemon[]
+export class List extends React.Component<{pokemon: Pokemon[], types: ElementType[], moves: Move[]}, typeof defaultState> {
     constructor(props: any) {
         super(props)
         this.state = defaultState
     }
 
     createPokemonList() {
-        return this.props.data.map((pkmn: Object, index: number) => {
-        //   this.checkType(job);
-        //   if (job.display) {
+        return this.props.pokemon.map((pkmn: Object, index: number) => {
+    
             return (
-              <li key={index} className="pokemon" key={pkmn.id}>
+              <li key={index} className="pokemon">
                 <ListType pkmn={pkmn} types={this.props.types} />
                 <p>
                   <span>Originates from:</span> <span>{pkmn.generation.name}</span>
@@ -30,28 +31,7 @@ export class List extends React.Component<{data: any, types: any}, typeof defaul
 
                 <div>
                   <p>Moves:</p>
-                  {_.map(pkmn.moves, (move, index) => {
-                      return (
-                        <div key={index}>
-                            <p> - {move.name}</p>
-                            <div className="move-details">                                
-                                {_.map(this.props.types, (element, index) => {
-                                    let moveType = 'Normal'
-                                    let colour = ''
-                                    if (move.type_id === element.id) {
-                                        colour = element.colour
-                                        return (
-                                            <p key={index}><span>Type: </span><span className="type" style={{background:'#'+colour}}>{element.name}</span></p>
-                                        )
-                                    }
-                                })}
-                                <p><span>Attack: {move.power} / Accuracy: {move.accuracy} / PP: {move.pp}</span></p>
-                            </div>
-                        </div>
-                      )
-                      console.log(move)
-                  })}    
-                  {/* <span>Moves:</span> <span>{pkmn.moves[0].name}</span> */}
+                  <ListMoves pkmn_moves={pkmn.moves} moves={this.props.moves} types={this.props.types} count={index} />
                 </div>
 
                 <p>  
@@ -59,11 +39,9 @@ export class List extends React.Component<{data: any, types: any}, typeof defaul
                   <ListEvolutions evolutions={pkmn.evolutions} count={index} />
                 </p>
               </li>
-            );
-        //   } else {
-        //     return false;
-        //   }
-        });
+            )
+
+        })
     }
 
     render() {
@@ -72,3 +50,31 @@ export class List extends React.Component<{data: any, types: any}, typeof defaul
         )
     }
 }
+
+
+
+
+{/* 
+Old moves output, was within this component, now in its own
+    
+{_.map(pkmn.moves, (move, index) => {
+    return (
+    <div key={index}>
+        <p> - {move.name}</p>
+        <div className="move-details">                                
+            {_.map(this.props.types, (element, index) => {
+                let moveType = 'Normal'
+                let colour = ''
+                if (move.type_id === element.id) {
+                    colour = element.colour
+                    return (
+                        <p key={index}><span>Type: </span><span className="type" style={{background:'#'+colour}}>{element.name}</span></p>
+                    )
+                }
+            })}
+            <p><span>Attack: {move.power} / Accuracy: {move.accuracy} / PP: {move.pp}</span></p>
+        </div>
+    </div>
+    )
+    console.log(move)
+})}     */}

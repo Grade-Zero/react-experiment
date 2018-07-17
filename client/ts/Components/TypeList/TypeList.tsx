@@ -11,7 +11,7 @@ let defaultState = {
     search: ""    
 }
 
-export class ListFilter extends React.Component<null, typeof defaultState> {
+export class ListFilter extends React.Component<{types: any}, typeof defaultState> {
     constructor(props: any) {
         super(props)
         this.state = defaultState
@@ -56,7 +56,8 @@ export class ListFilter extends React.Component<null, typeof defaultState> {
         // return <li key={type.id} className={type.selected ? 'selected' : ''} onClick={(e) => this.checkTagSelection(e, tag)}>{tag.name}</li>
         return <li key={gen.id} className={gen.selected ? 'selected' : ''}>{gen.name}</li>
       });
-    }
+    } 
+    return <li>None</li>
   }
 
   render() {
