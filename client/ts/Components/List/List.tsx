@@ -20,7 +20,7 @@ export class List extends React.Component<{pokemon: Pokemon[], types: ElementTyp
     }
 
     createPokemonList() {
-        return this.props.pokemon.map((pkmn: Object, index: number) => {
+        return this.props.pokemon.map((pkmn: Pokemon, index: number) => {
     
             return (
               <li key={index} className="pokemon">

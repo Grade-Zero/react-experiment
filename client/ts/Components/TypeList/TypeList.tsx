@@ -11,7 +11,7 @@ let defaultState = {
     search: ""    
 }
 
-export class ListFilter extends React.Component<{types: any}, typeof defaultState> {
+export class ListFilter extends React.Component<{types: ElementType[]}, typeof defaultState> {
     constructor(props: any) {
         super(props)
         this.state = defaultState

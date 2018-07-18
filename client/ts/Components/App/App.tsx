@@ -1,10 +1,14 @@
 import * as React from 'react'
+import { Provider } from 'react-redux';
+import { store } from 'redux'
+
 import { List } from '../List/List'
 import { ListFilter } from '../TypeList/TypeList'
 
 import Types from '../../store/data/types'
 import Pokemon from '../../store/data/pokemon';
 import Moves from '../../store/data/moves'
+
 
 let defaultState = {
     pokemon: [],
@@ -25,27 +29,29 @@ export class App extends React.Component<null, typeof defaultState> {
 
     render() {
         return (
-            <div className="App">
+            <Provider store={store}>
+                <div className="App">
 
-                <header className="header">
-                    <div className="col">
-                        <div className="logo">
-                            <h1><span>RM</span>Reactmon</h1>
-                        </div>  
-                    </div>
-                </header>
-
-                <div className="listings">
-                    <div className="col">
-                        <div className="list">
-                            <List pokemon={Pokemon.list} types={Types.list} moves={Moves.list} />
+                    <header className="header">
+                        <div className="col">
+                            <div className="logo">
+                                <h1><span>RM</span>Reactmon</h1>
+                            </div>  
                         </div>
-                        <div className="filters">
-                            <ListFilter types={Types.list} />
+                    </header>
+
+                    <div className="listings">
+                        <div className="col">
+                            <div className="list">
+                                <List pokemon={Pokemon.list} types={Types.list} moves={Moves.list} />
+                            </div>
+                            <div className="filters">
+                                <ListFilter types={Types.list} />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </Provider>
         )
     }
 }

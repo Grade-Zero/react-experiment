@@ -7,10 +7,11 @@ interface ElementType {
 
 interface Pokemon {
     id: number;
+    name: string;
     generation: Object;
-    types: ElementType[];
-    moves: Object;
-    evolutions: Object;
+    types: Object;
+    moves: Move[];
+    evolutions: Evolution[];
     catch_rate: number;
 }
 
@@ -23,4 +24,13 @@ interface Move {
     effects: Object;
     crit_chance: string;
     learned_at: Object;
+}
+
+interface Evolution {
+    id: number;
+    pokemon_id: number;
+    name: string;
+    image: string;
+    type: string;
+    method: Object;
 }

@@ -3,7 +3,7 @@ import * as _ from 'lodash'
 import './style.scss'
 
 
-export class ListType extends React.Component<{pkmn: any, types: any}, null> {
+export class ListType extends React.Component<{pkmn: Pokemon, types: ElementType[]}, null> {
     constructor(props: any) {
         super(props)
     }
