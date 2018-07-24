@@ -15,6 +15,9 @@ export class ListFilter extends React.Component<{types: ElementType[]}, typeof d
     constructor(props: any) {
         super(props)
         this.state = defaultState
+
+        // Should be a prop called activeType based on redux, find out why not
+        // console.log(this.props.activeType)
     }
 
   componentDidUpdate() {
@@ -47,6 +50,8 @@ export class ListFilter extends React.Component<{types: ElementType[]}, typeof d
         // return <li key={type.id} className={type.selected ? 'selected' : ''} onClick={(e) => this.checkTagSelection(e, tag)}>{tag.name}</li>
         return <li key={type.id} className={type.selected ? 'selected' : ''}>{type.name}</li>
       });
+    } else {
+      return <li>No Types Available</li>
     }
   }
 
