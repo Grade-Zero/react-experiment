@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Provider } from 'react-redux';
-import { store } from 'redux'
 
 import { List } from '../List/List'
 import { ListFilter } from '../TypeList/TypeList'
@@ -29,29 +28,27 @@ export class App extends React.Component<null, typeof defaultState> {
 
     render() {
         return (
-            <Provider store={store}>
-                <div className="App">
+            <div className="App">
 
-                    <header className="header">
-                        <div className="col">
-                            <div className="logo">
-                                <h1><span>RM</span>Reactmon</h1>
-                            </div>  
+                <header className="header">
+                    <div className="col">
+                        <div className="logo">
+                            <h1><span>RM</span>Reactmon</h1>
+                        </div>  
+                    </div>
+                </header>
+
+                <div className="listings">
+                    <div className="col">
+                        <div className="list">
+                            <List pokemon={Pokemon.list} types={Types.list} moves={Moves.list} />
                         </div>
-                    </header>
-
-                    <div className="listings">
-                        <div className="col">
-                            <div className="list">
-                                <List pokemon={Pokemon.list} types={Types.list} moves={Moves.list} />
-                            </div>
-                            <div className="filters">
-                                <ListFilter types={Types.list} />
-                            </div>
+                        <div className="filters">
+                            <ListFilter types={Types.list} />
                         </div>
                     </div>
                 </div>
-            </Provider>
+            </div>
         )
     }
 }

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Generations from '../../store/data/generations'
 
 import './style.scss';
+import _ from 'lodash';
 
 let defaultState = {
     typeVisible: false,
@@ -11,6 +12,7 @@ let defaultState = {
     search: ""    
 }
 
+//typeof defaultState | null
 export class ListFilter extends React.Component<{types: ElementType[]}, typeof defaultState> {
     constructor(props: any) {
         super(props)
@@ -18,6 +20,8 @@ export class ListFilter extends React.Component<{types: ElementType[]}, typeof d
 
         // Should be a prop called activeType based on redux, find out why not
         // console.log(this.props.activeType)
+        console.log(this.props)
+        console.log(this.state)
     }
 
   componentDidUpdate() {
@@ -47,8 +51,14 @@ export class ListFilter extends React.Component<{types: ElementType[]}, typeof d
   getTypes() {
     if (this.props.types.length > 0) {
       return this.props.types.map((type) => {
+        // let extraStyles = type.name === this.props.activeType ? { backgroundColor: '#f74d3c', color: 'white' } : {}
+        let extraStyles = { backgroundColor: '#f74d3c', color: 'white' }
         // return <li key={type.id} className={type.selected ? 'selected' : ''} onClick={(e) => this.checkTagSelection(e, tag)}>{tag.name}</li>
-        return <li key={type.id} className={type.selected ? 'selected' : ''}>{type.name}</li>
+        return <li 
+          key={type.id} 
+          className={type.selected ? 'selected' : ''}
+          style={_.merge({
+          }, extraStyles)}>{type.name}</li>
       });
     } else {
       return <li>No Types Available</li>
