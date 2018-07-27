@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Generations from '../../store/data/generations'
+import { ComponentProps } from './TypeListContainer'
 
 import './style.scss';
 import _ from 'lodash';
@@ -13,10 +14,11 @@ let defaultState = {
 }
 
 //typeof defaultState | null
-export class ListFilter extends React.Component<{types: ElementType[]}, typeof defaultState> {
+// export class ListFilter extends React.Component<{types: ElementType[]}, typeof defaultState> {
+export class ListFilter extends React.Component<ComponentProps, null> {
     constructor(props: any) {
         super(props)
-        this.state = defaultState
+        // this.state = defaultState
 
         // Should be a prop called activeType based on redux, find out why not
         // console.log(this.props.activeType)
@@ -77,6 +79,8 @@ export class ListFilter extends React.Component<{types: ElementType[]}, typeof d
 
   render() {
 
+    // AFTER MORE REDUX, RETURN CALLING THE FUNCTIONS
+
     return (
       <ul className="filter-group">
         <li className="search">
@@ -88,7 +92,7 @@ export class ListFilter extends React.Component<{types: ElementType[]}, typeof d
         <li className="show-filter">
           Type
           <ul className="filter-options visible">
-            {this.getTypes()}
+            {/* {this.getTypes()} */}
           </ul>
         </li>
 
@@ -96,7 +100,7 @@ export class ListFilter extends React.Component<{types: ElementType[]}, typeof d
         <li className="show-filter">
           Generation
           <ul className="filter-options visible">
-            {this.getGenerations()}
+            {/* {this.getGenerations()} */}
           </ul>
         </li>
 

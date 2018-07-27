@@ -16,7 +16,7 @@ export class ListType extends React.Component<{pkmn: Pokemon, types: ElementType
                 </div>
             {/* <span>{pkmn.types[0].name}</span> */}
                 <div className="list-header-sub">
-                    {_.map(this.props.pkmn.types, (type, index) => {
+                    {/* {_.map(this.props.pkmn.types, (type, index) => {
                         let colour = ''
                         _.map(this.props.types, (element, index) => {
                             if (element.id == type.type_id) {
@@ -26,7 +26,7 @@ export class ListType extends React.Component<{pkmn: Pokemon, types: ElementType
                         return (
                             <span key={index} className="type" style={{background:colour}}>{type.name}</span>
                         )
-                    })} 
+                    })}  */}
                 </div>
             </div>
         )

@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux'
 import ui from './ui/reducer'
 
+import Pokemon from './data/pokemon';
+
 let reducers = {
     ui
 }

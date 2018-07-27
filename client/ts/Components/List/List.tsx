@@ -21,7 +21,7 @@ export class List extends React.Component<{pokemon: Pokemon[], types: ElementTyp
 
     createPokemonList() {
         return this.props.pokemon.map((pkmn: Pokemon, index: number) => {
-    
+            // WHEN REDUX IS IN AND FIXED, RETURN THE COMPONENT CALLS
             return (
               <li key={index} className="pokemon">
                 <ListType pkmn={pkmn} types={this.props.types} />
@@ -31,12 +31,12 @@ export class List extends React.Component<{pokemon: Pokemon[], types: ElementTyp
 
                 <div>
                   <p>Moves:</p>
-                  <ListMoves pkmn_moves={pkmn.moves} moves={this.props.moves} types={this.props.types} count={index} />
+                  {/* <ListMoves pkmn_moves={pkmn.moves} moves={this.props.moves} types={this.props.types} count={index} /> */}
                 </div>
 
                 <p>  
                   <span>Evolutions:</span> 
-                  <ListEvolutions evolutions={pkmn.evolutions} count={index} />
+                  {/* <ListEvolutions evolutions={pkmn.evolutions} count={index} /> */}
                 </p>
               </li>
             )

@@ -10,8 +10,8 @@ interface Pokemon {
     name: string;
     generation: Object;
     types: Object;
-    moves: Move[];
-    evolutions: Evolution[];
+    moves: Object;
+    evolutions: Object;
     catch_rate: number;
 }
 

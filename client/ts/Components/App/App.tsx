@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 
 import { List } from '../List/List'
 import { ListFilter } from '../TypeList/TypeList'
+import TypeListContainer from '../TypeList/TypeListContainer'
 
 import Types from '../../store/data/types'
 import Pokemon from '../../store/data/pokemon';
@@ -44,7 +45,8 @@ export class App extends React.Component<null, typeof defaultState> {
                             <List pokemon={Pokemon.list} types={Types.list} moves={Moves.list} />
                         </div>
                         <div className="filters">
-                            <ListFilter types={Types.list} />
+                            {/* <ListFilter types={Types.list} /> */}
+                            <TypeListContainer />
                         </div>
                     </div>
                 </div>
