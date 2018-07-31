@@ -2,29 +2,42 @@ import * as React from 'react'
 import * as _ from 'lodash'
 import './style.scss'
 import { ListType } from '../ListType/ListType'
+import ListTypeContainer from '../ListType/ListTypeContainer'
 import { ListEvolutions } from '../ListEvolutions/ListEvolutions'
 import { ListMoves } from '../ListMoves/ListMoves'
+
+import { ComponentProps } from './ListContainer';
 
 let defaultState = {
     generation: '',
     types: [
         ''
-    ]
+    ],
+    loading: true
 }
 
 //pokemon: Pokemon[]
-export class List extends React.Component<{pokemon: Pokemon[], types: ElementType[], moves: Move[]}, typeof defaultState> {
+export class List extends React.Component<ComponentProps, typeof defaultState> {
     constructor(props: any) {
         super(props)
         this.state = defaultState
     }
+
+    // componentWillMount() {
+    //     this.setState({loading: true}, () => {
+    //         this.props.loadData()
+    //         this.setState({loading: false})
+    //         console.log(this.props)
+    //     })
+    // }
 
     createPokemonList() {
         return this.props.pokemon.map((pkmn: Pokemon, index: number) => {
             // WHEN REDUX IS IN AND FIXED, RETURN THE COMPONENT CALLS
             return (
               <li key={index} className="pokemon">
-                <ListType pkmn={pkmn} types={this.props.types} />
+                {/* <ListType pkmn={pkmn} types={this.props.types} /> */}
+                <ListTypeContainer />
                 <p>
                   <span>Originates from:</span> <span>{pkmn.generation.name}</span>
                 </p>
@@ -45,9 +58,7 @@ export class List extends React.Component<{pokemon: Pokemon[], types: ElementTyp
     }
 
     render() {
-        return (
-            <ul>{this.createPokemonList()}</ul>
-        )
+        return (<ul>{this.createPokemonList()}</ul>)
     }
 }
 

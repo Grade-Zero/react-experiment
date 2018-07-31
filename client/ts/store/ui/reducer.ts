@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux'
 import { TypeActionTypes, Actions, SearchActionTypes } from './action';
+import Types from '../data/types'
+
+
 
 const type = (
     state = {
-      id: null as null | number,
-      name: ''
+      types: Types.list,
+      selectedType: null
     },
     action: Actions
   ): typeof state => {
@@ -12,7 +15,7 @@ const type = (
     case TypeActionTypes.CHANGE_TYPE_ID:
       return {
         ...state,
-        id: action.typeId
+        selectedType: action.type
       }
     case TypeActionTypes.CHANGE_TYPE_NAME:
       return {

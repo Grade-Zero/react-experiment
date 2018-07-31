@@ -11,10 +11,10 @@ export const actions = {
         type: PokemonActionTypes.SET_POKEMON as PokemonActionTypes.SET_POKEMON,
         pokemon: items
     }),
-    // setMenuCategories : (categories: ItemCategory[]) => ({
-    //     type: MenuItemsActionTypes.SET_MENU_CATEGORIES as MenuItemsActionTypes.SET_MENU_CATEGORIES,
-    //     categories: categories
-    // }),
+    setPokemonTypes : (items: ElementType[]) => ({
+        type: PokemonActionTypes.SET_POKEMON_TYPES as PokemonActionTypes.SET_POKEMON_TYPES,
+        types: items
+    }),
 }
 
 export type Actions = ReturnType<typeof actions[keyof typeof actions]>

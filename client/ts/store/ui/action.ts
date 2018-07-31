@@ -1,6 +1,7 @@
 export enum TypeActionTypes {
     CHANGE_TYPE_ID = 'CHANGE_TYPE_ID',
-    CHANGE_TYPE_NAME = 'CHANGE_TYPE_NAME'
+    CHANGE_TYPE_NAME = 'CHANGE_TYPE_NAME',
+    CHANGE_TYPE = 'CHANGE_TYPE'
 }
 export enum SearchActionTypes {
     CHANGE_SEARCH_TERM = 'CHANGE_SEARCH_TERM'
@@ -14,6 +15,10 @@ export const actions = {
     changeTypeName: (typeName: string) => ({
         type: TypeActionTypes.CHANGE_TYPE_NAME as TypeActionTypes.CHANGE_TYPE_NAME,
         typeName: typeName
+    }),
+    changeType: (type: Type) => ({
+        typeAction: TypeActionTypes.CHANGE_TYPE as TypeActionTypes.CHANGE_TYPE,
+        type: type
     }),
     changeSearchTerm: (searchTerm: string) => ({
         type: SearchActionTypes.CHANGE_SEARCH_TERM as SearchActionTypes.CHANGE_SEARCH_TERM,

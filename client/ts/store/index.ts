@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 import ui from './ui/reducer'
+import pokemon from './data/reducer'
 
 import Pokemon from './data/pokemon';
 
 let reducers = {
-    ui
+    ui,
+    pokemon
 }
 
 export type RootState = {
