@@ -15,10 +15,10 @@ let defaultState = {
 
 //typeof defaultState | null
 // export class ListFilter extends React.Component<{types: ElementType[]}, typeof defaultState> {
-export class ListFilter extends React.Component<ComponentProps, null> {
+export class ListFilter extends React.Component<ComponentProps, typeof defaultState> {
     constructor(props: any) {
         super(props)
-        // this.state = defaultState
+        this.state = defaultState
 
         // Should be a prop called activeType based on redux, find out why not
         // console.log(this.props.activeType)
@@ -51,15 +51,22 @@ export class ListFilter extends React.Component<ComponentProps, null> {
     }));
   }
 
+  selectType(typeId: number) {
+    console.log('Select type ' + typeId)
+    this.props.updateSelectedTypeId(typeId)
+    console.log(this.props)
+  }
+
   getTypes() {
     if (this.props.types.length > 0) {
       return this.props.types.map((type) => {
-        // let extraStyles = type.name === this.props.activeType ? { backgroundColor: '#f74d3c', color: 'white' } : {}
-        let extraStyles = { backgroundColor: '#f74d3c', color: 'white' }
+        let extraStyles = type.id === this.props.activeType ? { backgroundColor: '#f74d3c', color: 'white' } : {}
+        // let extraStyles = { backgroundColor: '#f74d3c', color: 'white' }
         // return <li key={type.id} className={type.selected ? 'selected' : ''} onClick={(e) => this.checkTagSelection(e, tag)}>{tag.name}</li>
         return <li 
           key={type.id} 
           className={type.selected ? 'selected' : ''}
+          onClick={this.selectType.bind(this, type.id)}
           style={_.merge({
           }, extraStyles)}>{type.name}</li>
       });
@@ -69,8 +76,8 @@ export class ListFilter extends React.Component<ComponentProps, null> {
   }
 
   getGenerations() {
-    if (Generations.list.length > 0) {
-      return Generations.list.map((gen) => {
+    if (this.props.generations.length > 0) {
+      return this.props.generations.map((gen: any) => {
         // return <li key={type.id} className={type.selected ? 'selected' : ''} onClick={(e) => this.checkTagSelection(e, tag)}>{tag.name}</li>
         return <li key={gen.id} className={gen.selected ? 'selected' : ''}>{gen.name}</li>
       });
@@ -101,7 +108,7 @@ export class ListFilter extends React.Component<ComponentProps, null> {
         <li className="show-filter">
           Generation
           <ul className="filter-options visible">
-            {/* {this.getGenerations()} */}
+            {this.getGenerations()}
           </ul>
         </li>
 
@@ -111,17 +118,3 @@ export class ListFilter extends React.Component<ComponentProps, null> {
     );
   }
 }
-
-// function mapStateToProps(state) {
-//   return {
-//     jobTypes: state.jobs.types,
-//     industries: state.jobs.industries,
-//     search: state.jobs.search
-//   }
-// }
-
-// export default connect(mapStateToProps, dispatch => bindActionCreators({
-//   clearFilters,
-//   selectJobType,
-//   selectIndustryType
-// }, dispatch))(JobListFilter);

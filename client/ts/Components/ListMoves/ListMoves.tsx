@@ -1,11 +1,14 @@
 import * as React from 'react'
 import * as _ from 'lodash'
 import './style.scss'
+import { ComponentProps } from './ListMovesContainer'
 
 
-export class ListMoves extends React.Component<{pkmn_moves: any, moves: any, types: any, count: number}, null> {
+export class ListMoves extends React.Component<ComponentProps, null> {
     constructor(props: any) {
         super(props)
+        console.log('ListMoves')
+        console.log(this.props)
     }
 
     render() {
@@ -40,7 +43,7 @@ export class ListMoves extends React.Component<{pkmn_moves: any, moves: any, typ
         //     })                
         // )
         return (
-            _.map(this.props.pkmn_moves, (move, index: number) => {
+            _.map(this.props.pkmnMoves, (move, index: number) => {
                 return (
                     _.map(this.props.moves, (base_move, index: number) => {
                         if (base_move.id === move.move_id) {

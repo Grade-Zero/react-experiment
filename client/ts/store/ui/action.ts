@@ -1,24 +1,21 @@
+import { ElementType } from "../data/objects";
+
 export enum TypeActionTypes {
-    CHANGE_TYPE_ID = 'CHANGE_TYPE_ID',
-    CHANGE_TYPE_NAME = 'CHANGE_TYPE_NAME',
-    CHANGE_TYPE = 'CHANGE_TYPE'
+    CHANGE_SELECTED_TYPE = 'CHANGE_SELECTED_TYPE',
+    CHANGE_SELECTED_TYPE_ID = 'CHANGE_SELECTED_TYPE_ID',
 }
 export enum SearchActionTypes {
     CHANGE_SEARCH_TERM = 'CHANGE_SEARCH_TERM'
 }
 
 export const actions = {
-    changeTypeId : (typeId: number) => ({
-        type: TypeActionTypes.CHANGE_TYPE_ID as TypeActionTypes.CHANGE_TYPE_ID,
+    changeSelectedType: (type: ElementType) => ({
+        type: TypeActionTypes.CHANGE_SELECTED_TYPE as TypeActionTypes.CHANGE_SELECTED_TYPE,
+        typeFull: type
+    }),
+    changeSelectedTypeId: (typeId: number) => ({
+        type: TypeActionTypes.CHANGE_SELECTED_TYPE_ID as TypeActionTypes.CHANGE_SELECTED_TYPE_ID,
         typeId: typeId
-    }),
-    changeTypeName: (typeName: string) => ({
-        type: TypeActionTypes.CHANGE_TYPE_NAME as TypeActionTypes.CHANGE_TYPE_NAME,
-        typeName: typeName
-    }),
-    changeType: (type: Type) => ({
-        typeAction: TypeActionTypes.CHANGE_TYPE as TypeActionTypes.CHANGE_TYPE,
-        type: type
     }),
     changeSearchTerm: (searchTerm: string) => ({
         type: SearchActionTypes.CHANGE_SEARCH_TERM as SearchActionTypes.CHANGE_SEARCH_TERM,

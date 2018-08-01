@@ -11,6 +11,7 @@ import { ElementType as ElementTypeModel } from '../../store/data/objects'
 import Types from '../../store/data/types'
 import Pokemon from '../../store/data/pokemon';
 import Moves from '../../store/data/moves'
+import Generations from '../../store/data/generations'
 
 const mapStateToProps = (state: RootState) => ( { })
 
@@ -20,6 +21,8 @@ const mapDispatchToProps = (dispatch: Dispatch, ownProps: {item: PokemonModel, t
         dispatch(actions.setPokemon(Pokemon.list))
         // let categories = await axios.get('/v1/menu/categories')
         dispatch(actions.setPokemonTypes(Types.list))
+        dispatch(actions.setPokemonMoves(Moves.list))
+        dispatch(actions.setGenerations(Generations.list))
     }
 })
 

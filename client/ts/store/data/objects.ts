@@ -15,7 +15,7 @@ export interface Pokemon {
     catch_rate: number;
 }
 
-interface Move {
+export interface Move {
     id: number;
     name: string;
     power: number;
@@ -35,7 +35,8 @@ interface Evolution {
     method: Object;
 }
 
-interface Generation {
+export interface Generation {
     id: number;
     name: string;
+    selected: Boolean;
 }

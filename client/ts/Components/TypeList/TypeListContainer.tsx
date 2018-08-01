@@ -6,19 +6,22 @@ import { Dispatch } from 'redux';
 import { actions } from '../../store/ui/action';
 
 const mapStateToProps = (state: RootState) => ( {
-  types: state.types.types
+  types: state.types.types,
+  generations: state.generations.generations,
+  activeType: state.ui.type.id
 })
 
-// const mapDispatchToProps = (dispatch: Dispatch, ownProps: null) => ({
-//   updateTypeId: (typeName: any) => {
-//       dispatch(actions.changeTypeName(typeName))
-//   }
-// })
+const mapDispatchToProps = (dispatch: Dispatch, ownProps: null) => ({
+  updateSelectedTypeId: (typeId: any) => {
+      dispatch(actions.changeSelectedTypeId(typeId))
+  }
+})
 
-export type ComponentProps = ReturnType<typeof mapStateToProps>
+export type ComponentProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(ListFilter)
 
 // mapDispatchToProps

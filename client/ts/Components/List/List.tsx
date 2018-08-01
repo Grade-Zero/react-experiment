@@ -6,6 +6,7 @@ import ListTypeContainer from '../ListType/ListTypeContainer'
 import { ListEvolutions } from '../ListEvolutions/ListEvolutions'
 import ListEvolutionsContainer from '../ListEvolutions/ListEvolutionsContainer'
 import { ListMoves } from '../ListMoves/ListMoves'
+import ListMovesContainer from '../ListMoves/ListMovesContainer'
 
 import { ComponentProps } from './ListContainer';
 import { Pokemon as PokemonModel } from '../../store/data/objects'
@@ -47,6 +48,7 @@ export class List extends React.Component<ComponentProps, typeof defaultState> {
                 <div>
                   <p>Moves:</p>
                   {/* <ListMoves pkmn_moves={pkmn.moves} moves={this.props.moves} types={this.props.types} count={index} /> */}
+                  <ListMovesContainer pkmnMoves={pkmn.moves} count={index} />
                 </div>
 
                 <p>  

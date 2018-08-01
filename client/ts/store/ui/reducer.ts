@@ -1,26 +1,43 @@
 import { combineReducers } from 'redux'
 import { TypeActionTypes, Actions, SearchActionTypes } from './action';
 import Types from '../data/types'
+import { ElementType } from '../data/objects';
 
 
+// const type = (
+//     state = {
+//       types: Types.list as ElementType[],
+//       selectedType: null
+//     },
+//     action: Actions
+//   ): typeof state => {
+//   switch (action.type) {
+//     case TypeActionTypes.CHANGE_SELECTED_TYPE:
+//       return {
+//         ...state,
+//         selectedType: action.type
+//       }
+//     // case TypeActionTypes.CHANGE_TYPE_NAME:
+//     //   return {
+//     //     ...state,
+//     //     name: action.typeName
+//     //   }
+//     default:
+//       return state
+//   }
+// }
 
 const type = (
     state = {
-      types: Types.list,
-      selectedType: null
+      id: null as null | number,
     },
     action: Actions
   ): typeof state => {
   switch (action.type) {
-    case TypeActionTypes.CHANGE_TYPE_ID:
+    case TypeActionTypes.CHANGE_SELECTED_TYPE_ID:
       return {
         ...state,
-        selectedType: action.type
-      }
-    case TypeActionTypes.CHANGE_TYPE_NAME:
-      return {
-        ...state,
-        name: action.typeName
+        id: action.typeId
       }
     default:
       return state
