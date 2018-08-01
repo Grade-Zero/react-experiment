@@ -4,9 +4,11 @@ import './style.scss'
 import { ListType } from '../ListType/ListType'
 import ListTypeContainer from '../ListType/ListTypeContainer'
 import { ListEvolutions } from '../ListEvolutions/ListEvolutions'
+import ListEvolutionsContainer from '../ListEvolutions/ListEvolutionsContainer'
 import { ListMoves } from '../ListMoves/ListMoves'
 
 import { ComponentProps } from './ListContainer';
+import { Pokemon as PokemonModel } from '../../store/data/objects'
 
 let defaultState = {
     generation: '',
@@ -32,12 +34,12 @@ export class List extends React.Component<ComponentProps, typeof defaultState> {
     // }
 
     createPokemonList() {
-        return this.props.pokemon.map((pkmn: Pokemon, index: number) => {
+        return this.props.pokemon.map((pkmn: PokemonModel, index: number) => {
             // WHEN REDUX IS IN AND FIXED, RETURN THE COMPONENT CALLS
             return (
               <li key={index} className="pokemon">
                 {/* <ListType pkmn={pkmn} types={this.props.types} /> */}
-                <ListTypeContainer />
+                <ListTypeContainer pkmn={pkmn} types={this.props.types} />
                 <p>
                   <span>Originates from:</span> <span>{pkmn.generation.name}</span>
                 </p>
@@ -49,7 +51,8 @@ export class List extends React.Component<ComponentProps, typeof defaultState> {
 
                 <p>  
                   <span>Evolutions:</span> 
-                  {/* <ListEvolutions evolutions={pkmn.evolutions} count={index} /> */}
+                  {/* <ListEvolutions evolutions={pkmn.evolutions} count={index} /> */
+                  <ListEvolutionsContainer evolutions={pkmn.evolutions} count={index} />}
                 </p>
               </li>
             )

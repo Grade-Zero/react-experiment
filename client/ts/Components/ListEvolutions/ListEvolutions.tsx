@@ -2,6 +2,7 @@ import * as React from 'react'
 import * as _ from 'lodash'
 import './style.scss'
 
+import { ComponentProps } from './ListEvolutionsContainer';
 
 export class ListEvolutions extends React.Component<{evolutions: any, count: number}, null> {
     constructor(props: any) {

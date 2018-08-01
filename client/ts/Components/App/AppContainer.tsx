@@ -5,13 +5,16 @@ import { RootState } from '../../store';
 import { Dispatch } from 'redux';
 import { actions } from '../../store/data/action';
 
+import { Pokemon as PokemonModel } from '../../store/data/objects'
+import { ElementType as ElementTypeModel } from '../../store/data/objects'
+
 import Types from '../../store/data/types'
 import Pokemon from '../../store/data/pokemon';
 import Moves from '../../store/data/moves'
 
 const mapStateToProps = (state: RootState) => ( { })
 
-const mapDispatchToProps = (dispatch: Dispatch, ownProps: {item: Pokemon}) => ({
+const mapDispatchToProps = (dispatch: Dispatch, ownProps: {item: PokemonModel, types: ElementTypeModel}) => ({
     loadData: async () => {
         // let items = await axios.get('/v1/menu/items')
         dispatch(actions.setPokemon(Pokemon.list))

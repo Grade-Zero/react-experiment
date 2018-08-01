@@ -22,6 +22,7 @@ export class ListFilter extends React.Component<ComponentProps, null> {
 
         // Should be a prop called activeType based on redux, find out why not
         // console.log(this.props.activeType)
+        console.log('ListFilter')
         console.log(this.props)
         console.log(this.state)
     }
@@ -92,7 +93,7 @@ export class ListFilter extends React.Component<ComponentProps, null> {
         <li className="show-filter">
           Type
           <ul className="filter-options visible">
-            {/* {this.getTypes()} */}
+            {this.getTypes()}
           </ul>
         </li>
 

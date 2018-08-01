@@ -5,8 +5,8 @@ import { RootState } from '../../store';
 import { Dispatch } from 'redux';
 import { actions } from '../../store/ui/action';
 
-const mapStateToProps = (state: RootState) => ({
-  activeType: state.ui.type.name
+const mapStateToProps = (state: RootState) => ( {
+  types: state.types.types
 })
 
 // const mapDispatchToProps = (dispatch: Dispatch, ownProps: null) => ({

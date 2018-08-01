@@ -1,15 +1,15 @@
-interface ElementType {
+export interface ElementType {
     id: number;
     name: string;
     colour: string;
     selected: boolean;
 }
 
-interface Pokemon {
+export interface Pokemon {
     id: number;
     name: string;
-    generation: Object;
-    types: Object;
+    generation: Generation;
+    types: ElementType[];
     moves: Object;
     evolutions: Object;
     catch_rate: number;
@@ -33,4 +33,9 @@ interface Evolution {
     image: string;
     type: string;
     method: Object;
+}
+
+interface Generation {
+    id: number;
+    name: string;
 }

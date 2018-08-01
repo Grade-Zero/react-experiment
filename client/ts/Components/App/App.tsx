@@ -20,8 +20,6 @@ let defaultState = {
     loading: true
 }
 
-// const Types = <Element[]>require('../../store/data/types')
-
 export class App extends React.Component<ComponentProps, typeof defaultState> {
     constructor(props: any) {
         super(props)
@@ -32,14 +30,15 @@ export class App extends React.Component<ComponentProps, typeof defaultState> {
         this.setState({loading: true}, async () => {
             await this.props.loadData()
             this.setState({loading: false})
-            console.log(this.props)
         })
     }
 
     render() {
         return (
             this.state.loading ?
-                (<h3>Loading over here</h3>) :
+                (
+                    <h3>Loading over here</h3>
+                ) :
                 (
                     <div className="App">
 
@@ -55,7 +54,7 @@ export class App extends React.Component<ComponentProps, typeof defaultState> {
                             <div className="col">
                                 <div className="list">
                                     {/* <List pokemon={Pokemon.list} types={Types.list} moves={Moves.list} /> */}
-                                    {/* <ListContainer /> */}
+                                    <ListContainer />
                                 </div>
                                 <div className="filters">
                                     {/* <ListFilter types={Types.list} /> */}

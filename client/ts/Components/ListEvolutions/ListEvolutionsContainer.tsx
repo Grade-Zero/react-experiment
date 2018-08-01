@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { ListType } from './ListType'
+import { ListEvolutions } from './ListEvolutions'
 import { RootState } from '../../store';
 import { Dispatch } from 'redux';
 import { actions } from '../../store/ui/action';
@@ -11,7 +11,7 @@ import { ElementType as ElementTypeModel } from '../../store/data/objects'
 // const mapStateToProps = (state: RootState) => ({
 //     pokemon: state.pokemon,
 // })
-const mapStateToProps = (state: RootState, ownProps: {pkmn: PokemonModel, types: ElementTypeModel}) => (
+const mapStateToProps = (state: RootState, ownProps: {evolutions: any, count: number}) => (
     {
         ...ownProps,
     }
@@ -26,4 +26,4 @@ export type ComponentProps = ReturnType<typeof mapStateToProps> & ReturnType<typ
 export default connect(
   mapStateToProps,
     mapDispatchToProps
-)(ListType)
+)(ListEvolutions)

@@ -9,11 +9,14 @@ import Types from '../../store/data/types'
 import Pokemon from '../../store/data/pokemon';
 import Moves from '../../store/data/moves'
 
+import { Pokemon as PokemonModel } from '../../store/data/objects'
+
 const mapStateToProps = (state: RootState) => ( {
-    pokemon: state.pokemon
+    pokemon: state.pokemon.pokemon,
+    types: state.types.types
 })
 
-const mapDispatchToProps = (dispatch: Dispatch, ownProps: {item: Pokemon}) => ({
+const mapDispatchToProps = (dispatch: Dispatch, ownProps: {item: PokemonModel, type: ElementTypeModel}) => ({
     // loadData: async () => {
     //     // let items = await axios.get('/v1/menu/items')
     //     dispatch(actions.setPokemon(Pokemon.list))
