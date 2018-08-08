@@ -44,6 +44,9 @@ export class List extends React.Component<ComponentProps, typeof defaultState> {
                 <p>
                   <span>Originates from:</span> <span>{pkmn.generation.name}</span>
                 </p>
+                <p>
+                    <span>Pokedex #</span> <span>{pkmn.pokedex.national}</span>
+                </p>
 
                 <div>
                   <p>Moves:</p>

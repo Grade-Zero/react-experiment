@@ -7,6 +7,9 @@ var Pokemon = {
             id: 1,
             name: 'kanto'
         },
+        pokedex: {
+            national: 1
+        },
         types: [
             {
                 id: 1,
@@ -86,6 +89,9 @@ var Pokemon = {
         generation: {
             id: 1,
             name: 'kanto'
+        },
+        pokedex: {
+            national: 2
         },
         types: [
             {
@@ -167,6 +173,9 @@ var Pokemon = {
             id: 1,
             name: 'kanto'
         },
+        pokedex: {
+            national: 3
+        },
         types: [
             {
                 id: 1,
@@ -240,6 +249,219 @@ var Pokemon = {
                     id: 1,
                     type: 'mega',
                     value: 'Venusaurite'
+                }
+            }
+        ],
+        catch_rate: 45
+      }, {
+        id: 4,
+        name: 'Houndoom',
+        generation: {
+            id: 2,
+            name: 'johto'
+        },
+        pokedex: {
+            national: 229
+        },
+        types: [
+            {
+                id: 1,
+                type_id: 3,
+                name: 'fire'
+            },
+            {
+                id: 2,
+                type_id: 14,
+                name: 'dark'
+            }
+        ],
+        moves: [
+            {
+                id: 1,
+                move_id: 5,
+                learned_at: {
+                    type: 'level',
+                    value: 50
+                }
+            },
+            {
+                id: 2,
+                move_id: 6,
+                learned_at: {
+                    type: 'tm',
+                    value: 97
+                }
+            }
+        ],
+        evolutions: [
+            {
+                id: 1,
+                pokemon_id: 0,
+                name: 'Houndour',
+                image: '',
+                type: 'pre',
+                method: {
+                    id: 1,
+                    type: 'level',
+                    value: ''
+                }
+            },
+            {
+                id: 2,
+                pokemon_id: 4,
+                name: 'Houndoom',
+                image: '',
+                type: 'self',
+                method: {
+                    id: 1,
+                    type: 'level',
+                    value: 24
+                }
+            },
+            {
+                id: 3,
+                pokemon_id: 3,
+                name: 'Mega Houndoom',
+                image: '',
+                type: 'evolution',
+                method: {
+                    id: 1,
+                    type: 'mega',
+                    value: 'Houndoomite'
+                }
+            }
+        ],
+        catch_rate: 45
+      }, {
+        id: 5,
+        name: 'Starmie',
+        generation: {
+            id: 1,
+            name: 'kanto'
+        },
+        pokedex: {
+            national: 121
+        },
+        types: [
+            {
+                id: 1,
+                type_id: 2,
+                name: 'water'
+            },
+            {
+                id: 2,
+                type_id: 13,
+                name: 'psychic'
+            }
+        ],
+        moves: [
+            {
+                id: 1,
+                move_id: 7,
+                learned_at: {
+                    type: 'level',
+                    value: 50
+                }
+            },
+            {
+                id: 2,
+                move_id: 8,
+                learned_at: {
+                    type: 'tm',
+                    value: 29
+                }
+            }
+        ],
+        evolutions: [
+            {
+                id: 1,
+                pokemon_id: 0,
+                name: 'Staryu',
+                image: '',
+                type: 'pre',
+                method: {
+                    id: 1,
+                    type: 'level',
+                    value: ''
+                }
+            },
+            {
+                id: 2,
+                pokemon_id: 5,
+                name: 'Starmie',
+                image: '',
+                type: 'self',
+                method: {
+                    id: 1,
+                    type: 'item',
+                    value: 'water stone'
+                }
+            }
+        ],
+        catch_rate: 45
+      }, {
+        id: 6,
+        name: 'Archeops',
+        generation: {
+            id: 5,
+            name: 'unova'
+        },
+        pokedex: {
+            national: 567
+        },
+        types: [
+            {
+                id: 8,
+                type_id: 8,
+                name: 'rock'
+            },
+            {
+                id: 2,
+                type_id: 6,
+                name: 'flying'
+            }
+        ],
+        moves: [
+            {
+                id: 1,
+                move_id: 9,
+                learned_at: {
+                    type: 'level',
+                    value: 18
+                }
+            },
+            {
+                id: 2,
+                move_id: 10,
+                learned_at: {
+                    type: 'level',
+                    value: 28
+                }
+            }
+        ],
+        evolutions: [
+            {
+                id: 1,
+                pokemon_id: 0,
+                name: 'Archen',
+                image: '',
+                type: 'pre',
+                method: {
+                    id: 1,
+                    type: 'level',
+                    value: ''
+                }
+            },
+            {
+                id: 2,
+                pokemon_id: 6,
+                name: 'Archeops',
+                image: '',
+                type: 'self',
+                method: {
+                    id: 1,
+                    type: 'level',
+                    value: 37
                 }
             }
         ],

@@ -8,7 +8,7 @@ var Types = {
       }, {
         id: 2,
         name: 'Water',
-        colour: '35c627',
+        colour: '0f72e2',
         selected: false
       }, {
         id: 3,
@@ -38,7 +38,7 @@ var Types = {
       }, {
         id: 8,
         name: 'Rock',
-        colour: '35c627',
+        colour: 'bcb54b',
         selected: false
       }, {
         id: 9,
@@ -63,12 +63,12 @@ var Types = {
       }, {
         id: 13,
         name: 'Psychic',
-        colour: '35c627',
+        colour: 'de16e5',
         selected: false
       }, {
         id: 14,
         name: 'Dark',
-        colour: '35c627',
+        colour: '2e2d30',
         selected: false
       }, {
         id: 15,

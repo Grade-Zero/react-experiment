@@ -9,6 +9,7 @@ export interface Pokemon {
     id: number;
     name: string;
     generation: Generation;
+    pokedex: Object;
     types: ElementType[];
     moves: Object;
     evolutions: Object;
