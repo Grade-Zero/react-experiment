@@ -3,7 +3,7 @@ import * as _ from 'lodash'
 import './style.scss'
 
 import { ComponentProps } from './ListTypeContainer';
-import { Pokemon as PokemonModel } from '../../store/data/objects'
+import { Pokemon as PokemonModel, ElementType } from '../../store/data/objects'
 import { ElementType as ElementTypeModel } from '../../store/data/objects'
 
 // export class ListType extends React.Component<{pkmn: PokemonModel, types: ElementTypeModel[]}, null> {
@@ -29,14 +29,14 @@ export class ListType extends React.Component<ComponentProps, null> {
                         // console.log(this.props.types)
                         // console.log('active pokemon type')
                         // console.log(type)
-                        _.map(this.props.types, (element, index) => {
-                            console.log('type.type_id')
-                            console.log(type.type_id)
-                            console.log(this.props.activeType)
-                            if (type.type_id === this.props.activeType) {
+                        _.map(this.props.types, (element: ElementType, index: number) => {
+                            // console.log('type.type_id')
+                            // console.log(type.type_id)
+                            // console.log(this.props.activeType)
+                            if (type.id === this.props.activeType) {
                                 colour = '#384838'
                             } else {
-                                if (element.id == type.type_id) {
+                                if (element.id == type.id) {
                                     colour = '#'+element.colour
                                 }
                             }       

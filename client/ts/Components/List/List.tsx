@@ -9,13 +9,10 @@ import { ListMoves } from '../ListMoves/ListMoves'
 import ListMovesContainer from '../ListMoves/ListMovesContainer'
 
 import { ComponentProps } from './ListContainer';
-import { Pokemon as PokemonModel } from '../../store/data/objects'
+import { Pokemon as PokemonModel, ElementType } from '../../store/data/objects'
 
 let defaultState = {
     generation: '',
-    types: [
-        ''
-    ],
     loading: true
 }
 
@@ -37,35 +34,57 @@ export class List extends React.Component<ComponentProps, typeof defaultState> {
     createPokemonList() {
         return this.props.pokemon.map((pkmn: PokemonModel, index: number) => {
             // WHEN REDUX IS IN AND FIXED, RETURN THE COMPONENT CALLS
-            return (
-              <li key={index} className="pokemon">
-                {/* <ListType pkmn={pkmn} types={this.props.types} /> */}
-                <ListTypeContainer pkmn={pkmn} types={this.props.types} />
-                <p>
-                  <span>Originates from:</span> <span>{pkmn.generation.name}</span>
-                </p>
-                <p>
-                    <span>Pokedex #</span> <span>{pkmn.pokedex.national}</span>
-                </p>
+            let typeMatch: Boolean = false
+            !_.isNil(this.props.activeType) ? 
+                (pkmn.types.map((type: ElementType, dex: number) => {
+                    console.log('type ' + dex + ' - ' + type.name + '(' + type.type_id + ')')
+                    type.type_id === this.props.activeType ?
+                    (
+                        typeMatch = true
+                    ) : 
+                    ( console.log('no match') )
+                })) : 
+                (
+                    typeMatch = true
+                )            
+            console.log(this.props.activeType)
+            console.log('type match ' + typeMatch)
+            return (                
+                typeMatch ? 
+                (
+                    <li key={index} className="pokemon">
+                        {/* <ListType pkmn={pkmn} types={this.props.types} /> */}
+                        <ListTypeContainer pkmn={pkmn} types={this.props.types} />
+                        <p>
+                        <span>Originates from:</span> <span>{pkmn.generation.name}</span>
+                        </p>
+                        <p>
+                            <span>Pokedex #</span> <span>{pkmn.pokedex.national}</span>
+                        </p>
 
-                <div>
-                  <p>Moves:</p>
-                  {/* <ListMoves pkmn_moves={pkmn.moves} moves={this.props.moves} types={this.props.types} count={index} /> */}
-                  <ListMovesContainer pkmnMoves={pkmn.moves} count={index} />
-                </div>
+                        <div>
+                        <p>Moves:</p>
+                        {/* <ListMoves pkmn_moves={pkmn.moves} moves={this.props.moves} types={this.props.types} count={index} /> */}
+                        <ListMovesContainer pkmnMoves={pkmn.moves} count={index} />
+                        </div>
 
-                <p>  
-                  <span>Evolutions:</span> 
-                  {/* <ListEvolutions evolutions={pkmn.evolutions} count={index} /> */
-                  <ListEvolutionsContainer evolutions={pkmn.evolutions} count={index} />}
-                </p>
-              </li>
+                        <p>  
+                        <span>Evolutions:</span> 
+                        {/* <ListEvolutions evolutions={pkmn.evolutions} count={index} /> */
+                        <ListEvolutionsContainer evolutions={pkmn.evolutions} count={index} />}
+                        </p>
+                    </li>
+                ) : 
+                (
+                    <li key={index}></li>
+                )
             )
 
         })
     }
 
     render() {
+        console.log('List component')
         return (<ul>{this.createPokemonList()}</ul>)
     }
 }

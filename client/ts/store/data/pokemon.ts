@@ -17,7 +17,7 @@ var Pokemon = {
                 name: 'grass'
             },
             {
-                id: 2,
+                id: 10,
                 type_id: 10,
                 name: 'poison'
             }
@@ -100,7 +100,7 @@ var Pokemon = {
                 name: 'grass'
             },
             {
-                id: 2,
+                id: 10,
                 type_id: 10,
                 name: 'poison'
             }
@@ -183,7 +183,7 @@ var Pokemon = {
                 name: 'grass'
             },
             {
-                id: 2,
+                id: 10,
                 type_id: 10,
                 name: 'poison'
             }
@@ -265,12 +265,12 @@ var Pokemon = {
         },
         types: [
             {
-                id: 1,
+                id: 3,
                 type_id: 3,
                 name: 'fire'
             },
             {
-                id: 2,
+                id: 14,
                 type_id: 14,
                 name: 'dark'
             }
@@ -344,12 +344,12 @@ var Pokemon = {
         },
         types: [
             {
-                id: 1,
+                id: 2,
                 type_id: 2,
                 name: 'water'
             },
             {
-                id: 2,
+                id: 13,
                 type_id: 13,
                 name: 'psychic'
             }
@@ -416,7 +416,7 @@ var Pokemon = {
                 name: 'rock'
             },
             {
-                id: 2,
+                id: 6,
                 type_id: 6,
                 name: 'flying'
             }

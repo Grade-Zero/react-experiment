@@ -113,7 +113,9 @@ export class ListFilter extends React.Component<ComponentProps, typeof defaultSt
         </li>
 
         {/* <li className="reset" onClick={() => this.clearFilters()}>Reset</li> */}
-        <li className="reset">Reset</li>
+        <li 
+          className="reset"
+          onClick={this.selectType.bind(this, null)}>Reset</li>
       </ul>
     );
   }
