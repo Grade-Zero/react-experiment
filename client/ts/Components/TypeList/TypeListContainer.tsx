@@ -8,13 +8,20 @@ import { actions } from '../../store/ui/action';
 const mapStateToProps = (state: RootState) => ( {
   types: state.types.types,
   generations: state.generations.generations,
-  activeType: state.ui.type.id
+  activeType: state.ui.type.id,
+  activeGeneration: state.ui.generation.id
 })
 
 const mapDispatchToProps = (dispatch: Dispatch, ownProps: null) => ({
   updateSelectedTypeId: (typeId: any) => {
       dispatch(actions.changeSelectedTypeId(typeId))
-  }
+  },
+  clearSelectedTypeId: () => {
+      dispatch(actions.clearSelectedTypeId())
+  },
+  updateSelectedGenerationId: (genId: any) => {
+    dispatch(actions.changeSelectedGenerationId(genId))
+  },
 })
 
 export type ComponentProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>

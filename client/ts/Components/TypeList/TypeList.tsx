@@ -57,6 +57,12 @@ export class ListFilter extends React.Component<ComponentProps, typeof defaultSt
     console.log(this.props)
   }
 
+  selectGeneration(genId: number) {
+    console.log('Select gen ' + genId)
+    this.props.updateSelectedGenerationId(genId)
+    console.log(this.props)
+  }
+
   getTypes() {
     if (this.props.types.length > 0) {
       return this.props.types.map((type) => {
@@ -78,11 +84,22 @@ export class ListFilter extends React.Component<ComponentProps, typeof defaultSt
   getGenerations() {
     if (this.props.generations.length > 0) {
       return this.props.generations.map((gen: any) => {
+        let extraStyles = gen.id === this.props.activeGeneration ? { backgroundColor: '#f74d3c', color: 'white' } : {}
         // return <li key={type.id} className={type.selected ? 'selected' : ''} onClick={(e) => this.checkTagSelection(e, tag)}>{tag.name}</li>
-        return <li key={gen.id} className={gen.selected ? 'selected' : ''}>{gen.name}</li>
+        return <li 
+          key={gen.id} 
+          className={gen.selected ? 'selected' : ''}
+          onClick={this.selectGeneration.bind(this, gen.id)}
+          style={_.merge({
+          }, extraStyles)}>{gen.name}</li>
       });
     } 
     return <li>None</li>
+  }
+
+  clearFilter() {
+    console.log('clear selected type')
+    this.props.clearSelectedTypeId()
   }
 
   render() {
@@ -115,7 +132,7 @@ export class ListFilter extends React.Component<ComponentProps, typeof defaultSt
         {/* <li className="reset" onClick={() => this.clearFilters()}>Reset</li> */}
         <li 
           className="reset"
-          onClick={this.selectType.bind(this, null)}>Reset</li>
+          onClick={this.clearFilter.bind(this, null)}>Reset</li>
       </ul>
     );
   }

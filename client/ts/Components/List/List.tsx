@@ -35,6 +35,7 @@ export class List extends React.Component<ComponentProps, typeof defaultState> {
         return this.props.pokemon.map((pkmn: PokemonModel, index: number) => {
             // WHEN REDUX IS IN AND FIXED, RETURN THE COMPONENT CALLS
             let typeMatch: Boolean = false
+            let genMatch: Boolean = false
             !_.isNil(this.props.activeType) ? 
                 (pkmn.types.map((type: ElementType, dex: number) => {
                     console.log('type ' + dex + ' - ' + type.name + '(' + type.type_id + ')')
@@ -46,11 +47,25 @@ export class List extends React.Component<ComponentProps, typeof defaultState> {
                 })) : 
                 (
                     typeMatch = true
-                )            
+                )      
+            !_.isNil(this.props.activeGeneration) ? 
+                (
+                    pkmn.generation.id === this.props.activeGeneration ? 
+                    (
+                        genMatch = true
+                    ) : 
+                    (   
+                        console.log('no generation match')
+                    )
+                ) :
+                (
+                    genMatch = true
+                )
             console.log(this.props.activeType)
             console.log('type match ' + typeMatch)
+            // If types aren't selected this will pass regardless, all pokemon stay even if generation is selected
             return (                
-                typeMatch ? 
+                typeMatch || genMatch ? 
                 (
                     <li key={index} className="pokemon">
                         {/* <ListType pkmn={pkmn} types={this.props.types} /> */}

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { TypeActionTypes, Actions, SearchActionTypes } from './action';
+import { TypeActionTypes, Actions, SearchActionTypes, GenActionTypes } from './action';
 import Types from '../data/types'
 import { ElementType } from '../data/objects';
 
@@ -39,6 +39,28 @@ const type = (
         ...state,
         id: action.typeId
       }
+    case TypeActionTypes.CLEAR_SELECTED_TYPE_ID:
+      return {
+        ...state,
+        id: action.typeId
+      }
+    default:
+      return state
+  }
+}
+
+const generation = (
+    state = {
+      id: null as null | number,
+    },
+    action: Actions
+  ): typeof state => {
+  switch (action.type) {
+    case GenActionTypes.CHANGE_SELECTED_GENERATION_ID:
+      return {
+        ...state,
+        id: action.genId
+      }
     default:
       return state
   }
@@ -64,5 +86,6 @@ const search = (
 
 export default combineReducers({
   type,
+  generation,
   search
 })
