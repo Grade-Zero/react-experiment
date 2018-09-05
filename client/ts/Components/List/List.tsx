@@ -98,9 +98,38 @@ export class List extends React.Component<ComponentProps, typeof defaultState> {
         })
     }
 
+    showActivePokemon() {
+        let selected: PokemonModel | null = null
+
+        !_.isNil(this.props.activePokemon) ?
+            (this.props.pokemon.map((pkmn: PokemonModel, index: number) => {
+                if (pkmn.id === this.props.activePokemon.id) {
+                    selected = pkmn
+                }
+            })
+            <div>
+                <h2>{selected.name}</h2>
+            </div> 
+        ) :
+        ( 
+            <div>
+                <h2>Oi</h2>
+            </div>
+        ) 
+
+        return (
+            <h2>Oi</h2>
+        )
+    }
+
     render() {
         console.log('List component')
-        return (<ul>{this.createPokemonList()}</ul>)
+        return (
+            <ul>
+                {this.createPokemonList()}
+                {this.showActivePokemon()}
+            </ul>
+        )
     }
 }
 

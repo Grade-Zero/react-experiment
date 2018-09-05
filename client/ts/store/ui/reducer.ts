@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { TypeActionTypes, Actions, SearchActionTypes, GenActionTypes } from './action';
+import { TypeActionTypes, Actions, SearchActionTypes, GenActionTypes, ListActionTypes } from './action';
 import Types from '../data/types'
 import { ElementType } from '../data/objects';
 
@@ -26,6 +26,23 @@ import { ElementType } from '../data/objects';
 //       return state
 //   }
 // }
+
+const pokemon = (
+  state = {
+    id: null as null | number,
+  },
+  action: Actions
+): typeof state => {
+switch (action.type) {
+  case ListActionTypes.CHANGE_SELECTED_POKEMON:
+    return {
+      ...state,
+      id: action.id
+    }
+  default:
+    return state
+}
+}
 
 const type = (
     state = {
@@ -85,6 +102,7 @@ const search = (
 }
 
 export default combineReducers({
+  pokemon,
   type,
   generation,
   search

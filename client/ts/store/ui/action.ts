@@ -12,6 +12,10 @@ export enum SearchActionTypes {
     CHANGE_SEARCH_TERM = 'CHANGE_SEARCH_TERM'
 }
 
+export enum ListActionTypes {
+    CHANGE_SELECTED_POKEMON = 'CHANGE_SELECTED_POKEMON'
+}
+
 export const actions = {
     changeSelectedType: (type: ElementType) => ({
         type: TypeActionTypes.CHANGE_SELECTED_TYPE as TypeActionTypes.CHANGE_SELECTED_TYPE,
@@ -32,6 +36,10 @@ export const actions = {
     changeSelectedGenerationId: (genId: number) => ({
         type: GenActionTypes.CHANGE_SELECTED_GENERATION_ID as GenActionTypes.CHANGE_SELECTED_GENERATION_ID,
         genId: genId
+    }),
+    changeSelectedPokemon: (id: number) => ({
+        type: ListActionTypes.CHANGE_SELECTED_POKEMON as ListActionTypes.CHANGE_SELECTED_POKEMON,
+        id: id
     })
 }
 

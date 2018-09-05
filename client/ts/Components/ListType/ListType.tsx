@@ -3,7 +3,7 @@ import * as _ from 'lodash'
 import './style.scss'
 
 import { ComponentProps } from './ListTypeContainer';
-import { Pokemon as PokemonModel, ElementType } from '../../store/data/objects'
+import { Pokemon as PokemonModel, ElementType, Pokemon } from '../../store/data/objects'
 import { ElementType as ElementTypeModel } from '../../store/data/objects'
 
 // export class ListType extends React.Component<{pkmn: PokemonModel, types: ElementTypeModel[]}, null> {
@@ -14,10 +14,15 @@ export class ListType extends React.Component<ComponentProps, null> {
         console.log(this.props)
     }
 
+    nameClicked(pkmn: PokemonModel) {
+        console.log('name clicked')
+        console.log(pkmn)
+    }
+
     render() {
         return (
             <div className="list-header">
-                <div className="list-header-name">
+                <div className="list-header-name" onClick={this.nameClicked.bind(this, this.props.pkmn)}>
                     {/* <h1>{this.props.pokemon.pokemon[0].name}</h1> */}
                     <h1>{this.props.pkmn.name}</h1>
                 </div>

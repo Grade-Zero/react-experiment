@@ -14,7 +14,8 @@ const mapStateToProps = (state: RootState) => ( {
     types: state.types.types,
     moves: state.moves.moves,
     activeType: state.ui.type.id,
-    activeGeneration: state.ui.generation.id
+    activeGeneration: state.ui.generation.id,
+    activePokemon: state.ui.pokemon.id
 })
 
 const mapDispatchToProps = (dispatch: Dispatch, ownProps: null) => ({
