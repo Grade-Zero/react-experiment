@@ -61,8 +61,7 @@ export class List extends React.Component<ComponentProps, typeof defaultState> {
                 (
                     genMatch = true
                 )
-            console.log(this.props.activeType)
-            console.log('type match ' + typeMatch)
+
             // If types aren't selected this will pass regardless, all pokemon stay even if generation is selected
             return (                
                 typeMatch || genMatch ? 
@@ -101,22 +100,43 @@ export class List extends React.Component<ComponentProps, typeof defaultState> {
     showActivePokemon() {
         let selected: PokemonModel | null = null
 
-        !_.isNil(this.props.activePokemon) ?
+        // !_.isNil(this.props.activePokemon) ?
+        //     (this.props.pokemon.map((pkmn: PokemonModel, index: number) => {
+        //         if (pkmn.id === this.props.activePokemon.id) {
+        //             selected = pkmn
+        //         }
+        //     })
+        //     <div>
+        //         <h2>{selected.name}</h2>
+        //     </div> 
+        // ) :
+        // ( 
+        //     <div>
+        //         <h2>Oi</h2>
+        //     </div>
+        // ) 
+
+        if (!_.isNil(this.props.activePokemon)) {
             (this.props.pokemon.map((pkmn: PokemonModel, index: number) => {
                 if (pkmn.id === this.props.activePokemon.id) {
                     selected = pkmn
+                    return (
+                        <div>
+                            <h2>{selected.name}</h2>
+                        </div>
+                    )
                 }
-            })
-            <div>
-                <h2>{selected.name}</h2>
-            </div> 
-        ) :
-        ( 
+                return (
+                    <div>
+                        <h3>Nothing to see here</h3>
+                    </div>
+                )
+            }))
+        } else {
             <div>
                 <h2>Oi</h2>
             </div>
-        ) 
-
+        }
         return (
             <h2>Oi</h2>
         )
