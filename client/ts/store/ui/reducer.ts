@@ -78,6 +78,11 @@ const generation = (
         ...state,
         id: action.genId
       }
+    case GenActionTypes.CLEAR_SELECTED_GENERATION_ID:
+      return {
+        ...state,
+        id: action.genId
+      }
     default:
       return state
   }

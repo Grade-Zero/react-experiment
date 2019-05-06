@@ -1,5 +1,6 @@
 export interface ElementType {
     id: number;
+    type_id: number;
     name: string;
     colour: string;
     selected: boolean;
@@ -9,7 +10,7 @@ export interface Pokemon {
     id: number;
     name: string;
     generation: Generation;
-    pokedex: Object;
+    pokedex: Pokedex;
     types: ElementType[];
     moves: Object;
     evolutions: Object;
@@ -40,4 +41,8 @@ export interface Generation {
     id: number;
     name: string;
     selected: Boolean;
+}
+
+export interface Pokedex {
+    national: number;
 }

@@ -100,6 +100,7 @@ export class ListFilter extends React.Component<ComponentProps, typeof defaultSt
   clearFilter() {
     console.log('clear selected type')
     this.props.clearSelectedTypeId()
+    this.props.clearSelectedGenerationId()
   }
 
   render() {

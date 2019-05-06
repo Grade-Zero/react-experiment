@@ -22,6 +22,9 @@ const mapDispatchToProps = (dispatch: Dispatch, ownProps: null) => ({
   updateSelectedGenerationId: (genId: any) => {
     dispatch(actions.changeSelectedGenerationId(genId))
   },
+  clearSelectedGenerationId: () => {
+    dispatch(actions.clearSelectedGenerationId())
+  },
 })
 
 export type ComponentProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>

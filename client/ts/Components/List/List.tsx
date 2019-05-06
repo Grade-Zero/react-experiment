@@ -38,7 +38,7 @@ export class List extends React.Component<ComponentProps, typeof defaultState> {
             let genMatch: Boolean = false
             !_.isNil(this.props.activeType) ? 
                 (pkmn.types.map((type: ElementType, dex: number) => {
-                    console.log('type ' + dex + ' - ' + type.name + '(' + type.type_id + ')')
+                    console.log('type ' + dex + ' - type name ' + type.name + ' type ID (' + type.type_id + ')')
                     type.type_id === this.props.activeType ?
                     (
                         typeMatch = true
@@ -62,36 +62,48 @@ export class List extends React.Component<ComponentProps, typeof defaultState> {
                     genMatch = true
                 )
 
+            console.log('typeMatch', typeMatch, 'genMatch', genMatch)
+            console.log('activeType', this.props.activeType, 'activeGen', this.props.activeGeneration)
+            /*
+                Need it to ignore type or gen unless one is selected
+                Then it needs to follow that selection, unless both have a selection, then it needs to obey both
+                type = x, gen = null ?
+                  type === type
+                type = x, gen = y
+                  type === type && gen === gen
+            */
+
             // If types aren't selected this will pass regardless, all pokemon stay even if generation is selected
             return (                
-                typeMatch || genMatch ? 
-                (
-                    <li key={index} className="pokemon">
-                        {/* <ListType pkmn={pkmn} types={this.props.types} /> */}
-                        <ListTypeContainer pkmn={pkmn} types={this.props.types} />
-                        <p>
-                        <span>Originates from:</span> <span>{pkmn.generation.name}</span>
-                        </p>
-                        <p>
-                            <span>Pokedex #</span> <span>{pkmn.pokedex.national}</span>
-                        </p>
+              (this.props.activeType === null && this.props.activeGeneration === null) || (this.props.activeType !== null && typeMatch) || (this.props.activeGeneration !== null && genMatch) ? 
+              // (true === false) ?
+              (
+                <li key={index} className="pokemon">
+                  {/* <ListType pkmn={pkmn} types={this.props.types} /> */}
+                  <ListTypeContainer pkmn={pkmn} types={this.props.types} />
+                  <p>
+                  <span>Originates from:</span> <span>{pkmn.generation.name}</span>
+                  </p>
+                  <p>
+                      <span>Pokedex #</span> <span>{pkmn.pokedex.national}</span>
+                  </p>
 
-                        <div>
-                        <p>Moves:</p>
-                        {/* <ListMoves pkmn_moves={pkmn.moves} moves={this.props.moves} types={this.props.types} count={index} /> */}
-                        <ListMovesContainer pkmnMoves={pkmn.moves} count={index} />
-                        </div>
+                  <div>
+                  <p>Moves:</p>
+                  {/* <ListMoves pkmn_moves={pkmn.moves} moves={this.props.moves} types={this.props.types} count={index} /> */}
+                  <ListMovesContainer pkmnMoves={pkmn.moves} count={index} />
+                  </div>
 
-                        <p>  
-                        <span>Evolutions:</span> 
-                        {/* <ListEvolutions evolutions={pkmn.evolutions} count={index} /> */
-                        <ListEvolutionsContainer evolutions={pkmn.evolutions} count={index} />}
-                        </p>
-                    </li>
-                ) : 
-                (
-                    <li key={index}></li>
-                )
+                  <p>  
+                  <span>Evolutions:</span> 
+                  {/* <ListEvolutions evolutions={pkmn.evolutions} count={index} /> */
+                  <ListEvolutionsContainer evolutions={pkmn.evolutions} count={index} />}
+                  </p>
+                </li>
+              ) : 
+              (
+                <li key={index}></li>
+              )
             )
 
         })
@@ -99,7 +111,6 @@ export class List extends React.Component<ComponentProps, typeof defaultState> {
 
     showActivePokemon() {
         let selected: PokemonModel | null = null
-
         // !_.isNil(this.props.activePokemon) ?
         //     (this.props.pokemon.map((pkmn: PokemonModel, index: number) => {
         //         if (pkmn.id === this.props.activePokemon.id) {
@@ -118,7 +129,7 @@ export class List extends React.Component<ComponentProps, typeof defaultState> {
 
         if (!_.isNil(this.props.activePokemon)) {
             (this.props.pokemon.map((pkmn: PokemonModel, index: number) => {
-                if (pkmn.id === this.props.activePokemon.id) {
+                if (pkmn.id === this.props.activePokemon!.id) {
                     selected = pkmn
                     return (
                         <div>
